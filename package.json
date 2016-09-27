@@ -1,0 +1,26 @@
+{
+  "name": "watashinochan",
+  "version": "0.0.1",
+  "description": "An image board made in nodejs!",
+  "main": "chan.js",
+  "scripts": {
+    "dev": "nodemon chan.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chan"
+  ],
+  "author": "Sloan",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "mongodb": "^2.2.10",
+    "mongoose": "^4.6.1",
+    "socket.io": "^1.4.8"
+  },
+  "devDependencies": {
+    "mongoose": "^4.6.1",
+    "nodemon": "^1.10.2"
+  }
+}
