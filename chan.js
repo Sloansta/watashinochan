@@ -19,7 +19,8 @@ db.once('open', () => {
 var postSchema = mong.Schema({
     title: String,
     message: String,
-    postNum: Number
+    postNum: Number,
+    comments: [String]
 });
 
 var post = mong.model('post', postSchema);
@@ -54,6 +55,15 @@ io.on("connection", (socket) => {
             gpn += 1;
         });
     });
+
+    socket.on("postComment", (data) => {
+      post.findOne({postNum: data.id}, (err, doc) => {
+        console.log(doc);
+        doc.update({"$push": {"comments": data.comment}}); //Need to get this comment saving tomorrow as well as emitting the comment so it can display it to the users!!!!
+        doc.save();
+        console.log("updated!" + doc.comments);
+      });
+    });
 });
 
 function displayPosts(sock) {
@@ -68,7 +78,7 @@ http.listen(3001, () => {
 });
 
 
-//Closes
+//Listening for closes
 process.stdin.resume(); //so the program will not close instantly
 
 function exitHandler(options, err) {
