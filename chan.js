@@ -24,6 +24,11 @@ var postSchema = mong.Schema({
 
 var post = mong.model('post', postSchema);
 
+//This clears the DB in case it was not clear last on shutdown
+post.remove({}, (err) => {
+    if (err) return console.error(err);
+});
+
 app.use(express.static(__dirname + '/front-end'));
 app.get("/", (req, res) => {
     res.sendFile(__dirname + "/front-end/index.html");
@@ -67,13 +72,12 @@ http.listen(3001, () => {
 process.stdin.resume(); //so the program will not close instantly
 
 function exitHandler(options, err) {
-    if (options.cleanup) console.log('clean');
-    if (err) console.log(err.stack);
-    if (options.exit) process.exit();
-    // Clear the DB
     post.remove({}, (err) => {
         if (err) return console.error(err);
     });
+    if (options.cleanup) console.log('clean');
+    if (err) console.log(err.stack);
+    if (options.exit) process.exit();
 }
 
 //do something when app is closing
