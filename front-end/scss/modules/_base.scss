@@ -1,0 +1,41 @@
+//This will make all browser use border-box
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+//Base body styles
+body {
+    background-attachment: fixed, fixed;
+    background-color: $bgc;
+    background-image: $bgi;
+    background-position: 85% 100%, top left;
+    background-repeat: no-repeat, repeat;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: $purple;
+}
+
+//hr Style
+hr {
+    border-top: 1px solid $purple;
+}
+
+//Top form container
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+//Top form title area design
+.titleArea {
+    margin: 0 auto;
+    text-align: center;
+}
+
+//Top form input design
+.inputForm {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
