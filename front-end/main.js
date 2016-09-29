@@ -1,13 +1,13 @@
-var socket = io(); 
+var socket = io();
 var submit = $("#submit");
 
 //When a user connects to the server, this will display them the current posts
 socket.on("showPosts", (data) => {
   $('#header-title').css("color", randomColor());
   for(var i in data) {
-    var title = '<h2>'+data[i].title+' [post no.'+data[i].postNum+']</h2>',
-        message = '<h4>'+data[i].message+'</h2>';
-    $("body").append(title, message);
+    var title = '<h3>'+data[i].title+' [post no.'+data[i].postNum+']</h3>',
+        message = '<p>'+data[i].message+'</p>';
+    $(".postcontainer").append("<div class=\"post\">" + title + message + "</div><hr />");
   }
 });
 

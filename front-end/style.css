@@ -1,7 +1,66 @@
-#title-area {
-  text-align: center;
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
 }
 
 body {
-  font-family: monospace;
+    background-attachment: fixed, fixed;
+    background-color: #F7F7F7;
+    background-image: url(img/main.png);
+    background-position: 85% 100%, top left;
+    background-repeat: no-repeat, repeat;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.postcontainer {
+    margin: 0 auto;
+}
+
+.titleArea {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inputForm {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inputForm input,
+.inputForm textarea,
+.inputForm button {
+    width: 100%;
+    background-color: #f7f7f7;
+    border-radius: 1px 1px 1px 1px;
+    -moz-border-radius: 1px 1px 1px 1px;
+    -webkit-border-radius: 1px 1px 1px 1px;
+    border: 2px solid #800080;
+}
+
+.inputForm input {
+    margin-bottom: 4px;
+}
+
+.inputForm button {
+    cursor: pointer;
+}
+
+.inputForm textarea {
+    height: 5em;
+}
+
+.inputForm input:focus,
+.inputForm textarea:focus {
+    border: 2px solid #800080;
+}
+
+.post {
+    margin: 0.5em;
 }
