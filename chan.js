@@ -59,9 +59,13 @@ io.on("connection", (socket) => {
     socket.on("postComment", (data) => {
       post.findOne({postNum: data.id}, (err, doc) => {
         console.log(doc);
-        doc.update({"$push": {"comments": data.comment}}); //Need to get this comment saving tomorrow as well as emitting the comment so it can display it to the users!!!!
-        doc.save();
-        console.log("updated!" + doc.comments);
+        if(data.comment != " " && data.comment != "") {
+          doc.update({$push: {"comments": data.comment}}, (err, model) => {
+            if(err) return console.err(err);
+          });
+          doc.save();
+          console.log("updated!" + doc.comments); 
+        }
       });
     });
 });

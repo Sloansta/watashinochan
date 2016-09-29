@@ -5,9 +5,18 @@ var submit = $("#submit");
 socket.on("showPosts", (data) => {
     $('#header-title').css("color", randomColor());
     for (var i in data) {
-        var title = '<div id="' + data[i].postNum + '"><h3>' + data[i].title + ' [post no.' + data[i].postNum + ']</h3><button id="b_' + data[i].postNum + '" onclick="postComment(' + data[i].postNum + ')">Reply</button> </div>',
+        var title = '<div id="' + data[i].postNum + '"><h3>' + data[i].title + ' [post no.' + data[i].postNum + ']</h3><button type="submit" id="b_' + data[i].postNum + '" onclick="postComment(' + data[i].postNum + ')">Reply</button> </div>',
             message = '<p>' + data[i].message + '</p>';
-        $(".postcontainer").append("<div class=\"post\">" + title + message + "</div><hr />");
+        $(".postcontainer").append("<div class=\"post\">" + title + message + "</div><hr/>");
+
+        if(data[i].comments.length > 0) {
+          console.log("here");
+          for(var j in data[i].comments) {
+              var num = '<h5> Comment no.'+j+'</h5>',
+                  comment = '<p>'+data[i].comments[j]+'</p>';
+              $(".postcontainer").append(num + '\n' + comment);
+          }
+        }
     }
 });
 
