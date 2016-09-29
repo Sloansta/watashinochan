@@ -1,0 +1,21 @@
+//Top from input design
+.inputForm {
+    input {
+        @include inbude;
+        margin-bottom: 4px;
+        &:focus {
+            border: 2px solid #800080;
+        }
+    }
+    button {
+        @include inbude;
+        cursor: pointer;
+    }
+    textarea {
+        @include inbude;
+        height: 5em;
+        &:focus {
+            border: 2px solid #800080;
+        }
+    }
+}

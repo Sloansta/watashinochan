@@ -1,0 +1,13 @@
+//This is the base scss file
+
+//Base input these need to be above anything else
+@import "modules/var";
+@import "modules/mixins";
+
+//Modules import
+@import "modules/base";
+@import "modules/input_buttons";
+@import "modules/post";
+
+//Vender imports
+@import "vender/normalize";
