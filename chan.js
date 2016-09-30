@@ -5,6 +5,8 @@ const http = require("http").Server(app);
 const io = require("socket.io")(http);
 const path = require('path');
 
+//Getting image uploading and input working next commit!!!!
+
 var gpn = 0; //Stands for global post number
 
 
@@ -64,7 +66,7 @@ io.on("connection", (socket) => {
             if(err) return console.err(err);
           });
           doc.save();
-          console.log("updated!" + doc.comments); 
+          console.log("updated!" + doc.comments);
         }
       });
     });
