@@ -7,3 +7,16 @@
 .post {
     margin: 0.5em;
 }
+
+.inline {
+    display: inline-block;
+}
+
+//Comments
+.comment {
+    background-color: darken($bgc, 2.5%);
+    border: 2px solid $purple;
+    margin-left: 1em;
+    margin-bottom: 0.25em;
+    padding-left: 1em;
+}

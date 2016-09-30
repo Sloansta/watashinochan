@@ -4,7 +4,7 @@
         @include inbude;
         margin-bottom: 4px;
         &:focus {
-            border: 2px solid #800080;
+            border: 2px solid $purple;
         }
     }
     button {
@@ -15,7 +15,13 @@
         @include inbude;
         height: 5em;
         &:focus {
-            border: 2px solid #800080;
+            border: 2px solid $purple;
         }
     }
+}
+
+.button-comment {
+    @include inbude;
+    width: inherit !important;
+    margin-left: 0.25em;
 }
