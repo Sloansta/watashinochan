@@ -20,6 +20,11 @@ socket.on("showPosts", (data) => {
     }
 });
 
+//Event listener for when the user wants to upload an image and or file
+$("#fileinput").on('change', () => {
+  //Next commit this will handle the image uploading and sending the data to the server to be saved!!!!
+});
+
 //Submits a post to the database.
 function submitPost() {
     var title = $("#title").val(),
