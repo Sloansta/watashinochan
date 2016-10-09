@@ -4,6 +4,7 @@ var submit = $("#submit");
 //When a user connects to the server, this will display them the current posts
 socket.on("showPosts", (data) => {
     $('#header-title').css("color", randomColor());
+    $('body').css("background-image", randomImage());
     for (var i in data) {
         var title = '<div id="' + data[i].postNum + '"><h3 class="inline">' + data[i].title + ' [post no.' + data[i].postNum + ']</h3><button type="submit" id="b_' + data[i].postNum + '" onclick="postComment(' + data[i].postNum + ')" class="inline button-comment">Reply</button> </div>',
             message = '<div class="message"><p>' + data[i].message + '</p></div>';
@@ -22,7 +23,7 @@ socket.on("showPosts", (data) => {
 
 //Event listener for when the user wants to upload an image and or file
 $("#fileinput").on('change', () => {
-  //Next commit this will handle the image uploading and sending the data to the server to be saved!!!!
+    //Next commit this will handle the image uploading and sending the data to the server to be saved!!!!
 });
 
 //Submits a post to the database.
@@ -53,4 +54,14 @@ function expandComments(id) {
 function randomColor() {
     var n = Math.random() * 355;
     return "hsl(" + n + ", 100%, 50%)";
+}
+
+function randomImage() {
+    var imgCount = 2;
+    var dir = 'img/';
+    var randomCount = Math.round(Math.random() * (imgCount - 1)) + 1;
+    var images = new Array
+        images[1] = "bg-01.png",
+        images[2] = "bg-02.png";
+    return "url(" + dir + images[randomCount] + ")"
 }

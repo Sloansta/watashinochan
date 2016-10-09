@@ -9,7 +9,8 @@
 body {
     background-attachment: fixed, fixed;
     background-color: $bgc;
-    background-image: $bgi;
+    //background-image: $bgi;
+    background-size: contain;
     background-position: 85% 100%, top left;
     background-repeat: no-repeat, repeat;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;

@@ -2,13 +2,13 @@ const express = require("express");
 const app = express();
 const mong = require("mongoose");
 const http = require("http").Server(app);
+const httpPort = 3001;
 const io = require("socket.io")(http);
 const path = require('path');
 
 //Getting image uploading and input working next commit!!!!
 
 var gpn = 0; //Stands for global post number
-
 
 mong.connect("mongodb://localhost:27017");
 var db = mong.connection;
@@ -79,8 +79,8 @@ function displayPosts(sock) {
     });
 }
 
-http.listen(3001, () => {
-    console.log("Listening on 3001");
+http.listen(httpPort, () => {
+    console.log("Listening on " + httpPort + "");
 });
 
 
