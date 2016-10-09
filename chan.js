@@ -4,6 +4,7 @@ const mong = require("mongoose");
 const http = require("http").Server(app);
 const httpPort = 3001;
 const io = require("socket.io")(http);
+const fs = require("fs");
 const path = require('path');
 
 //Getting image uploading and input working next commit!!!!
@@ -22,7 +23,8 @@ var postSchema = mong.Schema({
     title: String,
     message: String,
     postNum: Number,
-    comments: [String]
+    comments: [String],
+    img: {data: Buffer, contentType: String}
 });
 
 var post = mong.model('post', postSchema);
@@ -49,7 +51,10 @@ io.on("connection", (socket) => {
     //When the user requests to post something, this will be called!
     //This function essentially saves the post to the database, and then in return will display the post
     socket.on("requestPost", (data) => {
-        var pst = new post({ title: data.title, message: data.message, postNum: gpn });
+        var pst = new post({ title: data.title, message: data.message, postNum: gpn});
+        pst.img.data = data.img; // This is currently not working correctly, however will be in the future when we can actually save images to the server!!!!
+        pst.img.contentType = "image/*";
+        console.log(pst.img);
         pst.save((err, pst) => {
             if (err) return console.error(err);
 
